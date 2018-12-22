@@ -38,3 +38,63 @@ public class PostAndSearchBoundary {
     }
 
 }
+
+
+
+    public void search(DataAccess d){
+        Scanner a = new Scanner(System.in);
+        Scanner b = new Scanner(System.in);
+        Scanner c = new Scanner(System.in);
+        Scanner v = new Scanner(System.in);
+        Scanner x = new Scanner(System.in);
+        ArrayList<Item> found= new ArrayList<>();
+        System.out.println("Search by: 1)Type..2)Location..3)Description..4)All");
+        int choice = a.nextInt();
+        switch (choice){
+            case 1:
+            {
+                System.out.print("Type: ");
+                String type = b.nextLine();
+                found=s.searchType(type, d);
+                printAll(found);
+                break;
+            }
+            case 2:
+            {   System.out.print("Location: ");
+                String loc = c.nextLine();
+                found=s.searchLocation(loc,d);
+                printAll(found);
+                break;
+            }
+            case 3:{
+                System.out.print("Description: ");
+                String des = v.nextLine();
+                found=s.searchDescription(des,d);
+                printAll(found);
+                break;
+            }
+            case 4 :
+            {
+                System.out.print("Type: ");
+                String type = b.nextLine();
+                System.out.print("Location: ");
+                String loc = c.nextLine();
+                System.out.print("Description: ");
+                String des = x.nextLine();
+                found=s.searchAll(type,loc,des,d);
+                printAll(found);
+                break;
+            }
+            default:{
+                break;
+            }
+        }
+    }
+    public void printAll(ArrayList<Item> found){
+        for(int i=0;i<found.size();i++){
+            System.out.println("type: "+found.get(i).type+" location: "+found.get(i).location+" description: "+found.get(i).desc);
+        }
+    }
+
+
+
