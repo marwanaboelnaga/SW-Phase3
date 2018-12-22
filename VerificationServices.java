@@ -13,5 +13,7 @@ public class VerificationServices {
             }
         }
         return check;
+	public void SaveAccount(DataAccess d, User u){
+        d.addUser(u);
     }
 }
