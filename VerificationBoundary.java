@@ -1,8 +1,9 @@
 import java.util.Scanner;
 
 public class VerificationBoundary {
-	VerificationServices vs = new VerificationServices();
-    public void SignUp(DataAccess dataAccess){
+    VerificationServices vs = new VerificationServices();
+
+    public void SignUp(DataAccess dataAccess) {
         System.out.print("Enter UserName: ");
         Scanner t = new Scanner(System.in);
         String userN = t.nextLine();
@@ -20,20 +21,19 @@ public class VerificationBoundary {
         System.out.println("Account created");
 
     }
-}
-    public int SignIn(DataAccess dataAccess){
+
+    public int SignIn(DataAccess dataAccess) {
         System.out.print("UserName: ");
         Scanner n = new Scanner(System.in);
         String un = n.nextLine();
         System.out.print("Password: ");
         Scanner p = new Scanner(System.in);
         String pass = p.nextLine();
-        if(vs.CheckData(dataAccess, un, pass)==1)
-        {
+        if (vs.CheckData(dataAccess, un, pass) == 1) {
             return 1;
-        }
-        else{
+        } else {
             return 0;
         }
 
     }
+}
